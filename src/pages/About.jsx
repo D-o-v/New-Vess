@@ -46,7 +46,7 @@ export default function About() {
       <section className="dark-section relative overflow-hidden py-32">
         <img src="/vess-icon.svg" aria-hidden="true" className="absolute pointer-events-none select-none top-1/2 right-0"
           style={{ width: 440, opacity: 0.05, transform: 'translateY(-50%) translateX(22%)' }} />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <DarkTag>Our Story</DarkTag>
           </motion.div>
@@ -122,7 +122,7 @@ export default function About() {
       <section className="dark-section py-28 relative overflow-hidden">
         <img src="/vess-icon.svg" aria-hidden="true" className="absolute pointer-events-none select-none top-1/2 left-0"
           style={{ width: 400, opacity: 0.05, transform: 'translateY(-50%) translateX(-22%)' }} />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <FadeIn>
             <DarkTag>Our Mission</DarkTag>
             <h2 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight tracking-tight">

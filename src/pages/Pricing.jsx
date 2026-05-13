@@ -108,7 +108,7 @@ export default function Pricing() {
     <div>
       {/* Hero */}
       <section className="bg-gradient-to-br from-white via-[#f8fbff] to-[#f0f6ff] py-24">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="section-tag mb-5"><img src="/vess-icon.svg" className="h-3.5 w-auto" aria-hidden="true" />Pricing</span>
           </motion.div>
@@ -221,7 +221,7 @@ export default function Pricing() {
 
       {/* FAQ */}
       <section className="py-24 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-14">
             <h2 className="text-3xl font-bold text-slate-900">Frequently asked questions</h2>
           </FadeIn>

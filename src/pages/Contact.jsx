@@ -42,7 +42,7 @@ export default function Contact() {
     <div>
       {/* Header */}
       <section className="bg-gradient-to-br from-white via-[#f8fbff] to-[#f0f6ff] py-20">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="section-tag mb-5"><img src="/vess-icon.svg" className="h-3.5 w-auto" aria-hidden="true" />Contact</span>
           </motion.div>
@@ -67,7 +67,7 @@ export default function Contact() {
 
       {/* Calendly embed */}
       <section id="schedule" className="bg-white py-20 border-b border-slate-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <span className="section-tag mb-5">
               <img src="/vess-icon.svg" className="h-3.5 w-auto" aria-hidden="true" />
