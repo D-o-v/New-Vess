@@ -368,35 +368,38 @@ function DashboardMockup() {
         <div className="w-2.5 h-2.5 rounded-full bg-red-400 opacity-80"/>
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
         <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 opacity-80"/>
-        <div className="ml-3 flex-1 bg-[#0f1420] rounded-md px-3 py-1 text-[10px] text-slate-400 font-mono">
+        <div className="ml-3 flex-1 bg-[#0f1420] rounded-md px-3 py-1 text-[10px] text-slate-400 font-mono truncate">
           app.vess-solutions.com
         </div>
       </div>
-      <div className="flex" style={{ height:440 }}>
-        <div className="flex flex-col bg-[#1b619f] flex-shrink-0" style={{ width:152 }}>
-          <div className="px-3 pt-3 pb-2 border-b border-white/10">
-            <div className="text-[7px] text-white/50 uppercase tracking-wider mb-1">Network</div>
-            <div className="bg-white/15 rounded-lg px-2 py-1.5 flex items-center justify-between cursor-pointer hover:bg-white/20 transition-colors">
-              <span className="text-[8.5px] text-white font-semibold">Acme Telecom</span>
-              <ChevronDown size={8} className="text-white/70 flex-shrink-0 ml-1"/>
+      {/* Scrollable wrapper on small screens */}
+      <div className="overflow-x-auto">
+        <div className="flex" style={{ height: 440, minWidth: 480 }}>
+          <div className="flex flex-col bg-[#1b619f] flex-shrink-0" style={{ width: 152 }}>
+            <div className="px-3 pt-3 pb-2 border-b border-white/10">
+              <div className="text-[7px] text-white/50 uppercase tracking-wider mb-1">Network</div>
+              <div className="bg-white/15 rounded-lg px-2 py-1.5 flex items-center justify-between cursor-pointer hover:bg-white/20 transition-colors">
+                <span className="text-[8.5px] text-white font-semibold">Acme Telecom</span>
+                <ChevronDown size={8} className="text-white/70 flex-shrink-0 ml-1"/>
+              </div>
+            </div>
+            <div className="flex-1 px-2 py-2 space-y-0.5 overflow-hidden">
+              {nav.map(({ id, label, icon:Icon }) => (
+                <button key={id} onClick={() => setView(id)}
+                  className={`flex items-center gap-2 w-full px-2 py-1.5 rounded-lg transition-colors text-left ${view===id?'bg-white/20 shadow-sm':'hover:bg-white/10'}`}>
+                  <Icon size={10} className={`flex-shrink-0 ${view===id?'text-white':'text-white/55'}`}/>
+                  <span className={`text-[8px] font-medium truncate leading-none ${view===id?'text-white':'text-white/65'}`}>{label}</span>
+                </button>
+              ))}
             </div>
           </div>
-          <div className="flex-1 px-2 py-2 space-y-0.5 overflow-hidden">
-            {nav.map(({ id, label, icon:Icon }) => (
-              <button key={id} onClick={() => setView(id)}
-                className={`flex items-center gap-2 w-full px-2 py-1.5 rounded-lg transition-colors text-left ${view===id?'bg-white/20 shadow-sm':'hover:bg-white/10'}`}>
-                <Icon size={10} className={`flex-shrink-0 ${view===id?'text-white':'text-white/55'}`}/>
-                <span className={`text-[8px] font-medium truncate leading-none ${view===id?'text-white':'text-white/65'}`}>{label}</span>
-              </button>
-            ))}
+          <div className="flex-1 bg-[#f4f7fc] overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div key={view} initial={{opacity:0,x:8}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-8}} transition={{duration:0.18}} className="h-full">
+                {renderView()}
+              </motion.div>
+            </AnimatePresence>
           </div>
-        </div>
-        <div className="flex-1 bg-[#f4f7fc] overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div key={view} initial={{opacity:0,x:8}} animate={{opacity:1,x:0}} exit={{opacity:0,x:-8}} transition={{duration:0.18}} className="h-full">
-              {renderView()}
-            </motion.div>
-          </AnimatePresence>
         </div>
       </div>
     </div>
@@ -507,7 +510,7 @@ export default function Home() {
             </span>
           </motion.div>
 
-          <h1 className="font-extrabold tracking-tight leading-[1.04] text-[3.25rem] sm:text-6xl lg:text-7xl text-white">
+          <h1 className="font-extrabold tracking-tight leading-[1.04] text-[2.5rem] sm:text-6xl lg:text-7xl text-white">
             {[
               { text:'Network quality', delay:0.10 },
               { text:'monitoring,',     delay:0.22 },
@@ -640,7 +643,7 @@ export default function Home() {
             <FadeIn>
               <span className="text-[11px] font-bold text-[#c88d5e] tracking-[0.18em] uppercase">Device Fleet</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight tracking-tight mt-4">
-                Deploy once.<br/>Test forever.
+                Deploy once. Test forever.
               </h2>
               <p className="text-slate-500 mt-5 text-base leading-relaxed">
                 Android devices with active SIMs become permanent, silent testing agents. The Vess App
@@ -752,7 +755,7 @@ export default function Home() {
             <FadeIn delay={0.2}>
               <span className="text-[11px] font-bold text-[#c88d5e] tracking-[0.18em] uppercase">Analytics & Alerting</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight tracking-tight mt-4">
-                From device to dashboard<br/>in 5 seconds.
+                From device to dashboard in 5 seconds.
               </h2>
               <p className="text-slate-500 mt-5 text-base leading-relaxed">
                 Test results stream from field devices to the VeSS backend in near-real-time.
@@ -788,7 +791,7 @@ export default function Home() {
               Enterprise
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Security and compliance,<br/>built in from day one.
+              Security and compliance, built in from day one.
             </h2>
             <p className="text-slate-400 mt-4 max-w-xl mx-auto text-base leading-relaxed">
               TLS 1.3, AES-256 at rest, RBAC with three roles, MFA, and 7-year audit logs.
@@ -829,8 +832,8 @@ export default function Home() {
         </div>
         <FadeIn>
           <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
-              Start monitoring<br/>with confidence.
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
+              Start monitoring with confidence.
             </h2>
             <p className="text-slate-500 mt-5 text-lg leading-relaxed max-w-xl mx-auto">
               Book a live demo and see real test results streaming from real devices into the VeSS dashboard.

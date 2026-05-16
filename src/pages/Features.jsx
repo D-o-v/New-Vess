@@ -208,23 +208,22 @@ export default function Features() {
           <div className="absolute inset-0 pointer-events-none"
             style={{ backgroundImage: 'radial-gradient(circle, rgba(100,140,200,0.06) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
 
-          {/* Left fade vignette over globe */}
-          <div className="absolute inset-y-0 left-0 w-1/2 pointer-events-none z-10"
-            style={{ background: 'linear-gradient(to right, #030912 38%, rgba(2,8,24,0.7) 65%, transparent 100%)' }} />
+          {/* Left fade vignette over globe — stronger on mobile */}
+          <div className="absolute inset-y-0 left-0 pointer-events-none z-10"
+            style={{ width: '100%', background: 'linear-gradient(to right, #030912 45%, rgba(2,8,24,0.85) 65%, rgba(2,8,24,0.4) 80%, transparent 100%)' }} />
           {/* Bottom fade */}
           <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10"
             style={{ background: 'linear-gradient(to top, #030912, transparent)' }} />
 
-          {/* Globe — covers right ~72% of the section */}
-          <div className="absolute top-0 right-0 h-full pointer-events-none"
-            style={{ width: '72%' }}>
+          {/* Globe — full width on mobile (behind text), right portion on lg+ */}
+          <div className="absolute top-0 right-0 h-full pointer-events-none w-full lg:w-[72%]">
             <Suspense fallback={null}><FeaturesGlobe /></Suspense>
           </div>
 
           {/* Text content — sits above globe via z-index */}
-          <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-32 flex items-center"
+          <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-10 pb-24 sm:pb-32 flex items-center"
             style={{ minHeight: '90vh' }}>
-            <div className="max-w-xl">
+            <div className="max-w-xl w-full">
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
                 <Tag dark>Platform Features</Tag>
               </motion.div>
@@ -232,7 +231,7 @@ export default function Features() {
               <motion.h1
                 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="text-5xl sm:text-6xl font-extrabold text-white leading-[1.06] tracking-tight">
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.06] tracking-tight">
                 Real devices.<br />
                 <span style={{ color: '#c88d5e' }}>Real signals.</span><br />
                 Complete coverage.

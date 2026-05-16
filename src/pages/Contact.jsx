@@ -85,8 +85,10 @@ export default function Contact() {
               src="https://calendly.com/vess-solutions-info/30min?hide_gdpr_banner=1"
               width="100%"
               height="700"
+              style={{ minHeight: 500 }}
               frameBorder="0"
               title="Schedule a meeting with VeSS"
+              className="block"
             />
           </div>
         </div>

@@ -160,7 +160,7 @@ export default function Pricing() {
                 <FadeIn key={name} delay={i * 0.1}>
                   <div className={`relative rounded-2xl p-8 h-full flex flex-col ${
                     highlight
-                      ? 'bg-[#1b619f] text-white shadow-2xl scale-[1.02]'
+                      ? 'bg-[#1b619f] text-white shadow-2xl md:scale-[1.02]'
                       : 'bg-white border border-slate-200 shadow-sm'
                   }`}>
                     {badge && (

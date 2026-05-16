@@ -324,7 +324,7 @@ export default function Docs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex gap-10">
           {/* Sidebar */}
-          <aside className="hidden md:block w-64 flex-shrink-0">
+          <aside className="hidden lg:block w-64 flex-shrink-0">
             <div className="sticky top-24">
               {sections.map(({ id, label, icon: Icon, items }) => (
                 <div key={id} className="mb-1">
@@ -363,7 +363,7 @@ export default function Docs() {
           </aside>
 
           {/* Content */}
-          <main className="flex-1 min-w-0 max-w-3xl">
+          <main className="flex-1 min-w-0 max-w-3xl overflow-x-auto">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-xs text-slate-400 mb-8">
               <span>Docs</span>

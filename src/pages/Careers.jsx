@@ -130,7 +130,7 @@ function JobListing({ role, index }) {
         {/* Header — always visible */}
         <button
           onClick={() => setOpen(o => !o)}
-          className="w-full text-left px-8 py-7 flex items-start justify-between gap-6 group"
+          className="w-full text-left px-5 sm:px-8 py-5 sm:py-7 flex items-start justify-between gap-4 sm:gap-6 group"
         >
           <div className="flex-1">
             <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -172,7 +172,7 @@ function JobListing({ role, index }) {
               transition={{ duration: 0.35, ease: 'easeInOut' }}
               className="overflow-hidden"
             >
-              <div className="px-8 pb-8 border-t border-slate-100">
+              <div className="px-5 sm:px-8 pb-6 sm:pb-8 border-t border-slate-100">
                 <div className="pt-7 space-y-8">
 
                   {/* About the role */}
@@ -263,9 +263,10 @@ export default function Careers() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-5xl sm:text-6xl font-extrabold text-white leading-[1.06] tracking-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.06] tracking-tight"
           >
-            Help us bring network<br />
+            Help us bring network<br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
             <span style={{ color: '#c88d5e' }}>visibility to the world.</span>
           </motion.h1>
           <motion.p
@@ -343,8 +344,9 @@ export default function Careers() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn className="max-w-2xl">
             <DarkTag>Don't See Your Role?</DarkTag>
-            <h2 className="text-4xl font-extrabold text-white leading-tight tracking-tight">
-              We're always open to<br />
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight tracking-tight">
+              We're always open to<br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
               <span style={{ color: '#c88d5e' }}>exceptional people.</span>
             </h2>
             <p className="mt-5 text-lg leading-relaxed max-w-lg" style={{ color: 'rgba(255,255,255,0.5)' }}>

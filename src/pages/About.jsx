@@ -54,9 +54,10 @@ export default function About() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-5xl sm:text-6xl font-extrabold text-white leading-[1.06] tracking-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.06] tracking-tight"
           >
-            Built because blind spots<br />
+            Built because blind spots<br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
             <span style={{ color: '#c88d5e' }}>cost networks — and their users.</span>
           </motion.h1>
           <motion.p
@@ -125,8 +126,9 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <FadeIn>
             <DarkTag>Our Mission</DarkTag>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight tracking-tight">
-              "Give MNOs ground-truth visibility<br />
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight tracking-tight">
+              "Give MNOs ground-truth visibility<br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
               <span style={{ color: '#c88d5e' }}>into their network quality."</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.5)' }}>
@@ -221,8 +223,9 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn className="max-w-2xl">
             <DarkTag>Get Involved</DarkTag>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight tracking-tight">
-              See it in action.<br />
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
+              See it in action.<br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
               <span style={{ color: '#c88d5e' }}>Or come build it with us.</span>
             </h2>
             <p className="mt-5 text-lg leading-relaxed max-w-lg" style={{ color: 'rgba(255,255,255,0.5)' }}>

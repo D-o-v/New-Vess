@@ -12,6 +12,7 @@
     color: #1e293b;
     background-color: #ffffff;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   .theme {
     --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;

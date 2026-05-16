@@ -55,11 +55,12 @@ function Step1Visual() {
   },[])
 
   return (
-    <motion.div className="flex items-center justify-center gap-5 w-full h-full"
+    <motion.div className="flex items-center justify-center gap-3 sm:gap-5 w-full h-full"
       initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:0.4}}>
 
-      {/* Left ghost phone */}
-      <motion.div initial={{opacity:0,x:-24}} animate={{opacity:0.32,x:0}} transition={{delay:0.3,duration:0.5}}>
+      {/* Left ghost phone — hidden on very small screens */}
+      <motion.div initial={{opacity:0,x:-24}} animate={{opacity:0.32,x:0}} transition={{delay:0.3,duration:0.5}}
+        className="hidden sm:block flex-shrink-0">
         <Phone w={118} h={236}>
           <div className="h-full flex flex-col bg-[#06101e] px-2.5 py-2 text-white overflow-hidden">
             <div className="flex items-center gap-1.5 mb-2.5">
@@ -164,8 +165,9 @@ function Step1Visual() {
         </Phone>
       </motion.div>
 
-      {/* Right ghost phone */}
-      <motion.div initial={{opacity:0,x:24}} animate={{opacity:0.22,x:0}} transition={{delay:0.4,duration:0.5}}>
+      {/* Right ghost phone — hidden on very small screens */}
+      <motion.div initial={{opacity:0,x:24}} animate={{opacity:0.22,x:0}} transition={{delay:0.4,duration:0.5}}
+        className="hidden sm:block flex-shrink-0">
         <Phone w={104} h={208}>
           <div className="h-full flex flex-col bg-[#06101e] px-2 py-2 text-white overflow-hidden">
             <div className="flex items-center gap-1 mb-2">
@@ -197,7 +199,7 @@ function Step2Visual() {
   const fmt=s=>`${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`
 
   return (
-    <motion.div className="flex items-center justify-center w-full h-full gap-3 px-5"
+    <motion.div className="flex items-center justify-center w-full h-full gap-2 sm:gap-3 px-3 sm:px-5"
       initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:0.4}}>
 
       {/* Caller */}
@@ -473,36 +475,36 @@ export default function HowItWorksSection() {
       <div className="h-full flex flex-col" style={{ minHeight: '100vh' }}>
 
         {/* Header */}
-        <div className="flex-shrink-0 text-center pt-16 pb-8">
+        <div className="flex-shrink-0 text-center pt-16 pb-8 px-4">
           <span className="section-tag">How It Works</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-4">How VeSS works</h2>
           <p className="text-slate-500 mt-2">Three components. One complete picture.</p>
         </div>
 
-        {/* Stage */}
-        <div className="flex flex-1 min-h-0 pb-12">
+        {/* Stage — stacks on mobile, side-by-side on lg+ */}
+        <div className="flex flex-col lg:flex-row flex-1 min-h-0 pb-12">
 
           {/* Left: step info */}
-          <div className="w-[38%] flex flex-col justify-center pl-16 pr-8 flex-shrink-0">
+          <div className="lg:w-[38%] flex flex-col justify-center px-6 sm:px-10 lg:pl-16 lg:pr-8 flex-shrink-0 pb-8 lg:pb-0">
             <AnimatePresence mode="wait">
               <motion.div key={active}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}>
-                <div className="font-black leading-none select-none mb-4"
-                  style={{ fontSize: 96, color: 'rgba(27,97,159,0.07)' }}>
+                <div className="font-black leading-none select-none mb-4 hidden sm:block"
+                  style={{ fontSize: 'clamp(48px, 8vw, 96px)', color: 'rgba(27,97,159,0.07)' }}>
                   {STEPS[active].num}
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 leading-snug mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug mb-4">
                   {STEPS[active].title}
                 </h3>
-                <p className="text-slate-500 leading-relaxed">{STEPS[active].desc}</p>
+                <p className="text-slate-500 leading-relaxed text-sm sm:text-base">{STEPS[active].desc}</p>
               </motion.div>
             </AnimatePresence>
 
             {/* Step dots */}
-            <div className="flex gap-2.5 mt-10">
+            <div className="flex gap-2.5 mt-8 lg:mt-10">
               {STEPS.map((_, i) => (
                 <button key={i} onClick={() => { setActive(i); startTimer() }}
                   className="h-1 rounded-full transition-all duration-300 focus:outline-none"
@@ -512,7 +514,7 @@ export default function HowItWorksSection() {
           </div>
 
           {/* Right: visual */}
-          <div className="flex-1 flex items-center justify-center py-4 pr-16 min-w-0">
+          <div className="flex-1 flex items-center justify-center py-4 px-4 sm:px-8 lg:pr-16 min-w-0 min-h-[400px] sm:min-h-[500px]">
             <AnimatePresence mode="wait">
               {active === 0 && <div key="s1" className="w-full h-full flex items-center justify-center"><Step1Visual /></div>}
               {active === 1 && <div key="s2" className="w-full h-full flex items-center justify-center"><Step2Visual /></div>}
